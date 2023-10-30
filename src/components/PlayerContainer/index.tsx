@@ -1,20 +1,19 @@
-import { useState } from 'react';
-import * as S from './styled';
-import Player from '../Player';
+import { useState } from "react";
+import * as S from "./styled";
+import Player from "../Player";
 import SearchToolTip from "../SearchToolTip";
 
-
-const PlayerContainer = () => {  
+const PlayerContainer = ({ onClick }) => {
   const [toolTipVisibility, setToolTipVisibility] = useState(false);
 
   const onHover = () => {
-    setToolTipVisibility(!toolTipVisibility)
+    setToolTipVisibility(!toolTipVisibility);
   };
 
   return (
     <S.Wrapper>
-      <SearchToolTip visibility={toolTipVisibility}/>
-      <Player onHover={onHover}/>
+      <SearchToolTip visibility={toolTipVisibility} />
+      <Player onHover={onHover} onClick={onClick} />
     </S.Wrapper>
   );
 };

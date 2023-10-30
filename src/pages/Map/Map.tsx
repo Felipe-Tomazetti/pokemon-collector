@@ -5,10 +5,11 @@ import Sound from "react-sound";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllPokemons } from "../../store/actions/pokemonActions";
 import PokemonTheme from "../../assets/Pokemon.mp3";
+import PokemonsContainer from "../../components/PokemonsContainer";
 
 const Map = () => {
   const dispatch = useDispatch();
-  const allPokemons = useSelector((state) => state.pokemons.allPokemons);
+  //const allPokemons = useSelector((state) => state.pokemons.allPokemons);
 
   useEffect(() => {
     dispatch(fetchAllPokemons());
@@ -22,7 +23,12 @@ const Map = () => {
         playFromPosition={5000}
         volume={10}
       /> */}
-      <PlayerContainer />
+      <S.PokemonContainerWrapper>
+        <PokemonsContainer />
+      </S.PokemonContainerWrapper>
+      <S.PlayerContainerWrapper>
+        <PlayerContainer />
+      </S.PlayerContainerWrapper>
     </S.Wrapper>
   );
 };

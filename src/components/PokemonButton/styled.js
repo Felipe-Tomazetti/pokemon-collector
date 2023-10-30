@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ButtonWrapper = styled.button`
   padding: 1.6rem 2.4rem;
-  background-color: #ff3d71;
-  border: 1px solid #ff3d71;
+  background-color: #00d68f;
+  border: 1px solid #004a45;
   border-radius: 4rem;
   font-weight: bold;
   font-size: 1.6rem;
@@ -21,12 +21,8 @@ export const ButtonWrapper = styled.button`
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    border: 4px solid #db2c66;
+    border: 4px solid #004a45;
     padding: 0;
-  }
-
-  &:hover {
-    background-color: #db2c66;
   }
 `;
 

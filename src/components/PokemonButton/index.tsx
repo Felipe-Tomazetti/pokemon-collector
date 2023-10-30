@@ -1,17 +1,16 @@
 import * as S from "./styled";
 
-interface ButtonProps {
+interface PokemonButtonProps {
   onClick: () => void;
   icon: string;
-  text: string;
 }
 
-const Button = ({ onClick, icon, text }: ButtonProps) => {
+const PokemonButton = ({ onClick, icon }: PokemonButtonProps) => {
   return (
     <S.ButtonWrapper className={`${icon ? "icon" : ""}`} onClick={onClick}>
-      {icon ? <S.Icon src={icon} /> : <S.Text>{text}</S.Text>}
+      {icon ? <S.Icon src={icon} /> : <></>}
     </S.ButtonWrapper>
   );
 };
 
-export default Button;
+export default PokemonButton;

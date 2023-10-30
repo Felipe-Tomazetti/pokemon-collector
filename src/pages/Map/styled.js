@@ -13,3 +13,15 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   width: 100vw;
 `;
+
+export const PokemonContainerWrapper = styled.div`
+  display: flex;
+  margin-left: 1rem;
+  align-self: flex-start;
+  padding-bottom: 10rem;
+`;
+
+export const PlayerContainerWrapper = styled.div`
+  display: flex;
+  position: absolute;
+`;

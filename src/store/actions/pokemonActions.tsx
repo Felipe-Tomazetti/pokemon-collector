@@ -1,5 +1,6 @@
 import { pokemonActions } from "../slices/pokemonSlice";
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchAllPokemons = () => {
   return async (dispatch) => {
@@ -10,16 +11,34 @@ export const fetchAllPokemons = () => {
 
       const data = response.data.results;
 
-      console.log("response", response);
       return data;
     };
 
     try {
       const pokemonData = await fetchData();
-      console.log("pokemonData", pokemonData);
       dispatch(pokemonActions.fillAllPokemonsArray(pokemonData));
     } catch (error) {
       console.log("Error", error);
+    }
+  };
+};
+
+export const searchPokemon = () => {
+  return async (dispatch) => {
+    const fetchRandomPokemon = async () => {
+      const randomIndex = Math.floor(Math.random() * 700);
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${randomIndex}`
+      );
+
+      const data = response.data;
+      return data;
+    };
+    try {
+      const currentPokemonData = await fetchRandomPokemon();
+      dispatch(pokemonActions.searchForPokemon(currentPokemonData));
+    } catch (error) {
+      console.log("Erro ao buscar pokemon", error);
     }
   };
 };

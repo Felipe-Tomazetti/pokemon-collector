@@ -2,8 +2,12 @@ import * as S from "./styled";
 import ash from "../../assets/images/ashFront.png";
 import pokeball from "../../assets/images/pokeball.png";
 import { useSelector } from "react-redux";
+import attackIcon from "../../assets/icons/attack.png";
+import defenseIcon from "../../assets/icons/defense.png";
+import moveSpeedIcon from "../../assets/icons/velocity.png";
+import Button from "../Button";
 
-const PokemonModal = ({ onClose, pokemonData }) => {
+const CapturedPokemonModal = ({ onClose, pokemonData }) => {
   const captureHandler = () => {
     console.log("caputrado");
     onClose();
@@ -13,7 +17,7 @@ const PokemonModal = ({ onClose, pokemonData }) => {
     (state) => state.pokemons.currentPokemonFound
   );
 
-  console.log("current pokemas", currentPokemon);
+  console.log("POKEMON DATA", pokemonData);
 
   return (
     <S.ModalWrapper>
@@ -74,16 +78,53 @@ const PokemonModal = ({ onClose, pokemonData }) => {
                 </S.AbilityTags>
               ))}
             </S.PokemonAbilities>
+            <S.PokemonStatistics>
+              <S.TypeWrapper>
+                <S.HorizontalSeparator />
+                <strong>ESTATÍSTICAS</strong>
+                <S.HorizontalSeparator />
+              </S.TypeWrapper>
+              <S.StatisticsWrapper>
+                <S.StatWrapper>
+                  <S.StatIcon src={defenseIcon} width={16} height={16} />
+                  <S.StatText>DEFESA</S.StatText>
+                  {pokemonData[0].stats.defense}
+                </S.StatWrapper>
+                <S.StatWrapper>
+                  <S.StatIcon src={attackIcon} width={16} height={16} />
+                  <S.StatText>ATAQUE</S.StatText>
+                  {pokemonData[0].stats.attack}
+                </S.StatWrapper>
+                <S.StatWrapper>
+                  <S.StatIcon src={defenseIcon} width={16} height={16} />
+                  <S.StatText>DEFESA ESPECIAL</S.StatText>
+                  {pokemonData[0].stats.specialDefense}
+                </S.StatWrapper>
+                <S.StatWrapper>
+                  <S.StatIcon src={attackIcon} width={16} height={16} />
+                  <S.StatText>ATAQUE ESPECIAL</S.StatText>
+                  {pokemonData[0].stats.specialAttack}
+                </S.StatWrapper>
+
+                <S.StatWrapper>
+                  <S.StatIcon src={moveSpeedIcon} width={16} height={16} />{" "}
+                  <S.StatText>VELOCIDADE</S.StatText>
+                  <S.StatNumber>{pokemonData[0].stats.moveSpeed}</S.StatNumber>
+                </S.StatWrapper>
+              </S.StatisticsWrapper>
+            </S.PokemonStatistics>
           </S.PokemonInfo>
-          <S.CaptureButton
-            onClick={captureHandler}
-            src={pokeball}
-            alt="Capture"
-          />
+          <S.ButtonWrapper>
+            <Button
+              text={"LIBERAR POKEMON"}
+              onClick={(): void => {}}
+              icon={""}
+            />
+          </S.ButtonWrapper>
         </S.MainContentWrapper>
       </S.ModalContent>
     </S.ModalWrapper>
   );
 };
 
-export default PokemonModal;
+export default CapturedPokemonModal;

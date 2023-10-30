@@ -143,21 +143,43 @@ export const TagWrapper = styled.div`
 
 export const PokemonTypeTags = styled.span`
   background-color: ${({ type }) => typeColors[type] || "#c4c0b4"};
+  color: white;
 `;
 
 export const PokemonAbilities = styled.div`
   margin: 10px 0;
 `;
 
-export const CaptureButton = styled.img`
-  background: transparent;
+export const PokemonStatistics = styled.div`
+  margin: 10px 0;
+`;
+
+export const StatisticsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StatNumber = styled.text`
+  display: flex;
+  align-items: flex-start;
+`;
+
+export const StatWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const StatText = styled.strong``;
+
+export const StatIcon = styled.img``;
+
+export const ButtonWrapper = styled.div`
   cursor: pointer;
-  width: 8rem;
-  height: 8rem;
   z-index: 3;
   position: fixed;
-  padding-bottom: 10rem;
-  padding-left: 20rem;
+  margin-top: 20rem;
 `;
 
 export const VerticalSeparator = styled.div`

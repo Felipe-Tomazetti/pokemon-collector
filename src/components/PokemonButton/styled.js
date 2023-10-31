@@ -38,7 +38,7 @@ export const ButtonWrapper = styled.button`
 
 export const Icon = styled.img`
   height: 1.5rem;
-  width: 1.5rem;
+  width: 1rem;
 
   &.captured {
     height: 3rem;

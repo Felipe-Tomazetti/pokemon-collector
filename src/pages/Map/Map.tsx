@@ -4,6 +4,7 @@ import {
   fetchAllPokemons,
   searchPokemon,
 } from "../../store/actions/pokemonActions";
+import { walkingActions } from "../../store/slices/walkingSlice";
 import { pokemonActions } from "../../store/slices/pokemonSlice";
 import PlayerContainer from "../../components/PlayerContainer";
 import PokemonsContainer from "../../components/PokemonsContainer";
@@ -14,6 +15,7 @@ const Map = () => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState<boolean>(false);
   const allPokemons = useSelector((state) => state.pokemons.allPokemons);
+  const walkingStatus = useSelector((state) => state.walking.isWalking);
   const currentPokemon = useSelector(
     (state) => state.pokemons.currentPokemonFound
   );
@@ -34,9 +36,14 @@ const Map = () => {
     setShowModal(true);
   };
 
-  const handlePokemonSearch = async () => {
-    await dispatch(searchPokemon());
-    handleModalOpen();
+  const handlePokemonSearch = () => {
+    dispatch(walkingActions.startWalking());
+    dispatch(searchPokemon());
+
+    setTimeout(() => {
+      dispatch(walkingActions.stopWalking());
+      handleModalOpen();
+    }, 2000);
   };
 
   return (

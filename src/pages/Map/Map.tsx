@@ -8,6 +8,7 @@ import { walkingActions } from "../../store/slices/walkingSlice";
 import { pokemonActions } from "../../store/slices/pokemonSlice";
 import PlayerContainer from "../../components/PlayerContainer";
 import PokemonsContainer from "../../components/PokemonsContainer";
+import CapturedPokemonModal from "../../components/CapturedPokemonModal";
 import PokemonModal from "../../components/PokemonModal";
 import * as S from "./styled";
 
@@ -15,8 +16,7 @@ const Map = () => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState<boolean>(false);
   const allPokemons = useSelector((state) => state.pokemons.allPokemons);
-  const walkingStatus = useSelector((state) => state.walking.isWalking);
-  const currentPokemon = useSelector(
+  const currentPokemonFound = useSelector(
     (state) => state.pokemons.currentPokemonFound
   );
 
@@ -49,7 +49,10 @@ const Map = () => {
   return (
     <S.Wrapper>
       {showModal && (
-        <PokemonModal pokemonData={currentPokemon} onClose={handleModalClose} />
+        <PokemonModal
+          pokemonData={currentPokemonFound}
+          onClose={handleModalClose}
+        />
       )}
       <S.PokemonContainerWrapper>
         <PokemonsContainer />

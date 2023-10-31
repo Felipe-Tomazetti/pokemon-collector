@@ -24,6 +24,8 @@ const typeColors = {
 export const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -31,15 +33,13 @@ export const ModalWrapper = styled.div`
   align-items: center;
   align-selft: center;
   z-index: 999;
-  padding-bottom: 20rem;
 `;
 
 export const ModalContent = styled.div`
   // background-color: #fff;
   background: linear-gradient(to right, #43e97b, #38f9d7);
   border-radius: 1rem;
-  padding-top: 20px;
-  height: 80vh;
+  height: 90%;
   width: 40vw;
   overflow-y: auto;
   display: flex;
@@ -69,12 +69,13 @@ export const MainContentWrapper = styled.main`
   align-items: center;
   background-color: white;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   z-index: 1;
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
   padding-top: 7rem;
   margin-top: 9rem;
+  overflow-y: auto;
 `;
 
 export const PokemonInfo = styled.div`
@@ -97,8 +98,8 @@ export const PokemonImageWrapper = styled.div`
   z-index: 2;
 
   img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%;
+    max-height: 90%;
   }
 `;
 
@@ -119,7 +120,7 @@ export const StatsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 4rem;
+  width: 3rem;
   margin: 2rem;
   color: #2e3a59;
 `;
@@ -148,11 +149,11 @@ export const PokemonTypeTags = styled.span`
 `;
 
 export const PokemonAbilities = styled.div`
-  margin: 10px 0;
+  margin: 1rem 0;
 `;
 
 export const PokemonStatistics = styled.div`
-  margin: 10px 0;
+  margin: 1rem 0;
 `;
 
 export const StatisticsWrapper = styled.div`
@@ -169,16 +170,18 @@ export const StatWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 export const StatText = styled.strong``;
 
-export const StatIcon = styled.img``;
+export const StatIcon = styled.img`
+  justify-content: flex-start;
+`;
 
 export const ButtonWrapper = styled.div`
   cursor: pointer;
-  z-index: 3;
+  z-index: 2;
   position: fixed;
 `;
 

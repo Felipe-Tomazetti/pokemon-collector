@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialAuthState = { isWalking: false };
+type WalkingState = {
+  isWalking: boolean;
+};
+
+const initialWalkingState: WalkingState = { isWalking: false };
 
 const walkingSlice = createSlice({
   name: "walk",
-  initialState: initialAuthState,
+  initialState: initialWalkingState,
   reducers: {
     startWalking(state) {
       state.isWalking = true;

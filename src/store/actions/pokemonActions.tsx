@@ -2,7 +2,7 @@ import { pokemonActions } from "../slices/pokemonSlice";
 import axios from "axios";
 
 export const fetchAllPokemons = () => {
-  return async (dispatch) => {
+  return async (dispatch): Promise<void> => {
     const fetchData = async () => {
       const response = await axios.get(
         "https://pokeapi.co/api/v2/pokemon?limit=60"
@@ -23,7 +23,7 @@ export const fetchAllPokemons = () => {
 };
 
 export const searchPokemon = () => {
-  return async (dispatch) => {
+  return async (dispatch): Promise<void> => {
     const fetchRandomPokemon = async () => {
       const randomIndex = Math.floor(Math.random() * 700);
       const response = await axios.get(

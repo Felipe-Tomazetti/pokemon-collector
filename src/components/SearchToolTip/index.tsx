@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import * as S from "./styled";
 import searchToolTip from "../../assets/images/searchToolTip.png";
@@ -9,7 +9,9 @@ type SearchToolTipProps = {
 };
 
 const SearchToolTip = ({ visibility }: SearchToolTipProps) => {
-  const walkingStatus = useSelector((state) => state.walking.isWalking);
+  const walkingStatus = useSelector(
+    (state: RootState) => state.walking.isWalking
+  );
   const visible = true;
 
   return (

@@ -4,7 +4,7 @@ import Player from "../Player";
 import SearchToolTip from "../SearchToolTip";
 
 const PlayerContainer = ({ onClick }) => {
-  const [toolTipVisibility, setToolTipVisibility] = useState(false);
+  const [toolTipVisibility, setToolTipVisibility] = useState<boolean>(false);
 
   const onHover = () => {
     setToolTipVisibility(!toolTipVisibility);

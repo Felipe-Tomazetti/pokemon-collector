@@ -34,7 +34,6 @@ export const ModalWrapper = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  // background-color: #fff;
   background: linear-gradient(to right, #43e97b, #38f9d7);
   border-radius: 1rem;
   padding-top: 20px;

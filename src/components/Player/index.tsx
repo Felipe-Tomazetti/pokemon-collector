@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import ashFront from "../../assets/images/ashFront.png";
 import ashSide_1 from "../../assets/images/ashRightLeg.png";
@@ -10,9 +11,11 @@ interface PlayerProps {
   onClick: () => void;
 }
 
-const Player = ({ onHover, onClick }: PlayerProps) => {
-  const walkingStatus = useSelector((state) => state.walking.isWalking);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+const Player: React.FC<PlayerProps> = ({ onHover, onClick }) => {
+  const walkingStatus = useSelector(
+    (state: RootState) => state.walking.isWalking
+  );
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   const images = [ashSide_1, ashSide_2];
 

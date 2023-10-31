@@ -36,7 +36,6 @@ export const ModalWrapper = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  // background-color: #fff;
   background: linear-gradient(to right, #43e97b, #38f9d7);
   border-radius: 1rem;
   height: 90%;
@@ -51,8 +50,8 @@ export const ModalContent = styled.div`
 export const CloseButton = styled.button`
   position: absolute;
   background-color: #fff;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 10rem;
@@ -89,7 +88,7 @@ export const PokemonImageWrapper = styled.div`
   width: 16rem;
   height: 16rem;
   background-color: white;
-  border: 4px solid #00d68f;
+  border: 0.25rem solid #00d68f;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -132,9 +131,9 @@ export const PokemonType = styled.div`
   align-items: center;
 
   span {
-    margin: 5px;
-    padding: 5px 10px;
-    border-radius: 5px;
+    margin: 0.313rem;
+    padding: 0.313rem 0.625rem;
+    border-radius: 0.313rem;
   }
 `;
 

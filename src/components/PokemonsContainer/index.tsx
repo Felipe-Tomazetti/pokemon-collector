@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 import Button from "../Button";
 import PokemonButton from "../PokemonButton";
 import CapturedPokemonModal from "../CapturedPokemonModal";
@@ -9,9 +10,9 @@ import questionMark from "../../assets/icons/questionMarkIcon.png";
 
 const PokemonsContainer = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [currentPokemon, setCurrentPokemon] = useState(null);
+  const [currentPokemon, setCurrentPokemon] = useState<unknown>(null);
   const capturedPokemons = useSelector(
-    (state) => state.pokemons.capturedPokemons
+    (state: RootState) => state.pokemons.capturedPokemons
   );
 
   const pokemonClickHandler = (pokemonId: number) => {
@@ -26,7 +27,9 @@ const PokemonsContainer = () => {
 
   const lastSixPokemonsCaught = capturedPokemons.slice(-6);
 
-  const newPokemonClickHandler = () => {};
+  const newPokemonClickHandler = () => {
+    //TODO: Create and implement the function for a new pokemon
+  };
 
   const handleModalClose = () => {
     setShowModal(false);

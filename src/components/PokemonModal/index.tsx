@@ -1,16 +1,36 @@
 import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store";
 import { pokemonActions } from "../../store/slices/pokemonSlice";
 import pokeball from "../../assets/images/pokeball.png";
 import * as S from "./styled";
 
-const PokemonModal = ({ onClose, pokemonData }) => {
+interface PokemonData {
+  id: number;
+  name: string;
+  hp: number;
+  height: number;
+  weight: number;
+  imageURL: string;
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+}
+
+interface PokemonModalProps {
+  onClose: () => void;
+  pokemonData: PokemonData;
+}
+
+const PokemonModal: React.FC<PokemonModalProps> = ({
+  onClose,
+  pokemonData,
+}) => {
   const currentPokemon = useSelector(
-    (state) => state.pokemons.currentPokemonFound
+    (state: RootState) => state.pokemons.currentPokemonFound
   );
   const dispatch = useDispatch();
 
-  const captureHandler = async () => {
-    await dispatch(pokemonActions.capturePokemon(currentPokemon));
+  const captureHandler = () => {
+    dispatch(pokemonActions.capturePokemon(currentPokemon));
     onClose();
   };
 
@@ -55,7 +75,10 @@ const PokemonModal = ({ onClose, pokemonData }) => {
               </S.TypeWrapper>
               <S.TagWrapper>
                 {pokemonData[0].types.map((type) => (
-                  <S.PokemonTypeTags type={type.type.name.toUpperCase()}>
+                  <S.PokemonTypeTags
+                    key={type.type.name}
+                    type={type.type.name.toUpperCase()}
+                  >
                     <span>{type.type.name.toUpperCase()}</span>
                   </S.PokemonTypeTags>
                 ))}
@@ -68,7 +91,7 @@ const PokemonModal = ({ onClose, pokemonData }) => {
                 <S.HorizontalSeparator />
               </S.TypeWrapper>
               {pokemonData[0].abilities.map((ability) => (
-                <S.AbilityTags>
+                <S.AbilityTags key={ability.ability.name}>
                   {ability.ability.name.toUpperCase()} -
                 </S.AbilityTags>
               ))}

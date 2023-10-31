@@ -62,7 +62,7 @@ const pokemonSlice = createSlice({
     cleanCurrentPokemon(state) {
       state.currentPokemonFound = [];
     },
-    releasePokemon(state, action: PayloadAction) {
+    releasePokemon(state, action: PayloadAction<number>) {
       const pokemonId = action.payload;
       state.capturedPokemons = state.capturedPokemons.filter(
         (pokemon) => pokemon[0].id !== pokemonId

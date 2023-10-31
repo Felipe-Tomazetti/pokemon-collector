@@ -7,7 +7,13 @@ import ErrorPage from "./pages/Error/ErrorPage";
 import store from "./store/index";
 import "./index.css";
 
-const router = createBrowserRouter([
+type RouteConfig = {
+  path: string;
+  element: React.ReactElement;
+  errorElement?: React.ReactElement;
+};
+
+const routerConfig: RouteConfig[] = [
   {
     path: "/",
     element: <App />,
@@ -17,7 +23,9 @@ const router = createBrowserRouter([
     path: "map",
     element: <Map />,
   },
-]);
+];
+
+const router = createBrowserRouter(routerConfig);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>

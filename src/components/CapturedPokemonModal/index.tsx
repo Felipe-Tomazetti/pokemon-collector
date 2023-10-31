@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { pokemonActions } from "../../store/slices/pokemonSlice";
 import Button from "../Button";
 import * as S from "./styled";
@@ -6,13 +6,39 @@ import attackIcon from "../../assets/icons/attack.png";
 import defenseIcon from "../../assets/icons/defense.png";
 import moveSpeedIcon from "../../assets/icons/velocity.png";
 
-const CapturedPokemonModal = ({ onClose, pokemonData }) => {
+interface PokemonData {
+  id: number;
+  name: string;
+  hp: number;
+  height: number;
+  weight: number;
+  imageURL: string;
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+  stats: {
+    defense: number;
+    attack: number;
+    specialDefense: number;
+    specialAttack: number;
+    moveSpeed: number;
+  };
+}
+
+interface CapturedPokemonModalProps {
+  onClose: () => void;
+  pokemonData: PokemonData;
+}
+
+const CapturedPokemonModal: React.FC<CapturedPokemonModalProps> = ({
+  onClose,
+  pokemonData,
+}) => {
   const dispatch = useDispatch();
 
-  const currentPokemon = pokemonData[0]; // Extract the Pokemon data from the array
+  const currentPokemon = pokemonData[0];
 
-  const releasePokemonHandler = async (pokemonId) => {
-    await dispatch(pokemonActions.releasePokemon(pokemonId)); // Dispatch with the ID directly
+  const releasePokemonHandler = async (pokemonId: number) => {
+    await dispatch(pokemonActions.releasePokemon(pokemonId));
     onClose();
   };
 

@@ -1,11 +1,12 @@
+import React from "react";
 import * as S from "./styled";
 
 interface PokemonButtonProps {
   onClick: () => void;
-  icon: string;
+  icon: "questionMarkIcon" | "capturedPokemonIcon" | "";
 }
 
-const PokemonButton = ({ onClick, icon }: PokemonButtonProps) => {
+const PokemonButton: React.FC<PokemonButtonProps> = ({ onClick, icon }) => {
   const questionMark = icon.includes("questionMarkIcon");
   return (
     <S.ButtonWrapper

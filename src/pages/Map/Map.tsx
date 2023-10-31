@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store";
 import {
   fetchAllPokemons,
   searchPokemon,
@@ -8,16 +9,17 @@ import { walkingActions } from "../../store/slices/walkingSlice";
 import { pokemonActions } from "../../store/slices/pokemonSlice";
 import PlayerContainer from "../../components/PlayerContainer";
 import PokemonsContainer from "../../components/PokemonsContainer";
-import CapturedPokemonModal from "../../components/CapturedPokemonModal";
 import PokemonModal from "../../components/PokemonModal";
 import * as S from "./styled";
 
 const Map = () => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState<boolean>(false);
-  const allPokemons = useSelector((state) => state.pokemons.allPokemons);
+  const allPokemons = useSelector(
+    (state: RootState) => state.pokemons.allPokemons
+  );
   const currentPokemonFound = useSelector(
-    (state) => state.pokemons.currentPokemonFound
+    (state: RootState) => state.pokemons.currentPokemonFound
   );
 
   useEffect(() => {

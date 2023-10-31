@@ -1,21 +1,20 @@
+import { useSelector, useDispatch } from "react-redux";
+import { pokemonActions } from "../../store/slices/pokemonSlice";
+import Button from "../Button";
 import * as S from "./styled";
-import ash from "../../assets/images/ashFront.png";
-import pokeball from "../../assets/images/pokeball.png";
-import { useSelector } from "react-redux";
 import attackIcon from "../../assets/icons/attack.png";
 import defenseIcon from "../../assets/icons/defense.png";
 import moveSpeedIcon from "../../assets/icons/velocity.png";
-import Button from "../Button";
 
 const CapturedPokemonModal = ({ onClose, pokemonData }) => {
-  const releaseHandler = () => {
-    console.log("caputrado");
+  const dispatch = useDispatch();
+
+  const currentPokemon = pokemonData[0]; // Extract the Pokemon data from the array
+
+  const releasePokemonHandler = async (pokemonId) => {
+    await dispatch(pokemonActions.releasePokemon(pokemonId)); // Dispatch with the ID directly
     onClose();
   };
-
-  const currentPokemon = useSelector(
-    (state) => state.pokemons.currentPokemonFound
-  );
 
   return (
     <S.ModalWrapper>
@@ -115,7 +114,7 @@ const CapturedPokemonModal = ({ onClose, pokemonData }) => {
           <S.ButtonWrapper>
             <Button
               text={"LIBERAR POKEMON"}
-              onClick={releaseHandler}
+              onClick={() => releasePokemonHandler(currentPokemon.id)}
               icon={""}
             />
           </S.ButtonWrapper>

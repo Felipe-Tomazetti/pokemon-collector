@@ -108,10 +108,10 @@ export const PokemonName = styled.h2`
 
 export const PokemonStats = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
 `;
 
 export const StatsWrapper = styled.div`
@@ -119,7 +119,7 @@ export const StatsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 4rem;
-  margin: 2rem;
+  margin: 1rem;
   color: #2e3a59;
 `;
 

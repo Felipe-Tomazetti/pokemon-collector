@@ -62,7 +62,12 @@ const pokemonSlice = createSlice({
     cleanCurrentPokemon(state) {
       state.currentPokemonFound = [];
     },
-    releasePokemon(state) {},
+    releasePokemon(state, action: PayloadAction) {
+      const pokemonId = action.payload;
+      state.capturedPokemons = state.capturedPokemons.filter(
+        (pokemon) => pokemon[0].id !== pokemonId
+      );
+    },
   },
 });
 

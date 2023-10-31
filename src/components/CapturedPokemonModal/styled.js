@@ -180,7 +180,6 @@ export const ButtonWrapper = styled.div`
   cursor: pointer;
   z-index: 3;
   position: fixed;
-  margin-top: 15rem;
 `;
 
 export const VerticalSeparator = styled.div`

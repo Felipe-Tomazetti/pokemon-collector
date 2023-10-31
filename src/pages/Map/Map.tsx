@@ -5,11 +5,10 @@ import {
   searchPokemon,
 } from "../../store/actions/pokemonActions";
 import { pokemonActions } from "../../store/slices/pokemonSlice";
-import * as S from "./styled";
 import PlayerContainer from "../../components/PlayerContainer";
 import PokemonsContainer from "../../components/PokemonsContainer";
 import PokemonModal from "../../components/PokemonModal";
-import CapturedPokemonModal from "../../components/CapturedPokemonModal";
+import * as S from "./styled";
 
 const Map = () => {
   const dispatch = useDispatch();

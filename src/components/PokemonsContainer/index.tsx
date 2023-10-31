@@ -9,7 +9,7 @@ import questionMark from "../../assets/icons/questionMarkIcon.png";
 
 const PokemonsContainer = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [currentPokemon, setCurrentPokemon] = useState<boolean>(null);
+  const [currentPokemon, setCurrentPokemon] = useState(null);
   const capturedPokemons = useSelector(
     (state) => state.pokemons.capturedPokemons
   );
@@ -25,7 +25,6 @@ const PokemonsContainer = () => {
   };
 
   const lastSixPokemonsCaught = capturedPokemons.slice(-6);
-  console.log(lastSixPokemonsCaught);
 
   const newPokemonClickHandler = () => {};
 

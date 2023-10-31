@@ -38,7 +38,7 @@ export const ModalContent = styled.div`
   border-radius: 1rem;
   padding-top: 20px;
   height: 80vh;
-  width: 40vw;
+  width: 25%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;

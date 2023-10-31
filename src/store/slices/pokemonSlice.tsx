@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type Pokemon = {
+interface Pokemon {
   id: number;
   imageURL: string;
   name: string;
   hp: number;
   height: number;
   weight: number;
-  types: Array<string>;
-  abilities: Array<string>;
+  types: [];
+  abilities: [];
   stats: {
     defense: number;
     attack: number;
@@ -16,7 +16,13 @@ type Pokemon = {
     specialAttack: number;
     moveSpeed: number;
   };
-};
+}
+
+interface PokemonState {
+  allPokemons: any[];
+  capturedPokemons: Pokemon[];
+  currentPokemonFound: Pokemon[];
+}
 
 const pokemonSlice = createSlice({
   name: "pokemon",
@@ -24,16 +30,16 @@ const pokemonSlice = createSlice({
     allPokemons: [],
     capturedPokemons: [],
     currentPokemonFound: [],
-  },
+  } as PokemonState,
   reducers: {
-    fillAllPokemonsArray(state, action) {
+    fillAllPokemonsArray(state, action: PayloadAction<[]>) {
       state.allPokemons = action.payload;
     },
-    capturePokemon(state, action) {
+    capturePokemon(state, action: PayloadAction<Pokemon>) {
       const capturedPokemon = action.payload;
       state.capturedPokemons.push(capturedPokemon);
     },
-    searchForPokemon(state, action) {
+    searchForPokemon(state, action: PayloadAction<[]>) {
       const currentPokemon = action.payload;
       state.currentPokemonFound.push({
         id: currentPokemon.id,

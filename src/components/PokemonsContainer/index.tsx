@@ -8,13 +8,13 @@ import plusIcon from "../../assets/icons/plusIcon.png";
 import questionMark from "../../assets/icons/questionMarkIcon.png";
 
 const PokemonsContainer = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [currentPokemon, setCurrentPokemon] = useState(null);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [currentPokemon, setCurrentPokemon] = useState<boolean>(null);
   const capturedPokemons = useSelector(
     (state) => state.pokemons.capturedPokemons
   );
 
-  const pokemonClickHandler = (pokemonId) => {
+  const pokemonClickHandler = (pokemonId: number) => {
     const clickedPokemon = capturedPokemons
       .slice(-6)
       .find((pokemon) => pokemon[0].id === pokemonId);
@@ -25,6 +25,7 @@ const PokemonsContainer = () => {
   };
 
   const lastSixPokemonsCaught = capturedPokemons.slice(-6);
+  console.log(lastSixPokemonsCaught);
 
   const newPokemonClickHandler = () => {};
 
@@ -48,51 +49,70 @@ const PokemonsContainer = () => {
       ))} */}
       <PokemonButton
         icon={
-          lastSixPokemonsCaught[0][0] && lastSixPokemonsCaught[0][0].imageURL
+          lastSixPokemonsCaught.length !== 0 &&
+          lastSixPokemonsCaught[0][0].imageURL
             ? lastSixPokemonsCaught[0][0].imageURL
             : questionMark
         }
-        onClick={() => pokemonClickHandler(lastSixPokemonsCaught[0][0].id)}
+        onClick={() =>
+          lastSixPokemonsCaught.length !== 0 &&
+          pokemonClickHandler(lastSixPokemonsCaught[0][0].id)
+        }
       />
       <PokemonButton
         icon={
-          lastSixPokemonsCaught[1][0] && lastSixPokemonsCaught[1][0].imageURL
+          lastSixPokemonsCaught.length !== 0 && lastSixPokemonsCaught[1]
             ? lastSixPokemonsCaught[1][0].imageURL
             : questionMark
         }
-        onClick={() => pokemonClickHandler(lastSixPokemonsCaught[1][0].id)}
+        onClick={() =>
+          lastSixPokemonsCaught.length !== 0 &&
+          pokemonClickHandler(lastSixPokemonsCaught[1][0].id)
+        }
       />
       <PokemonButton
         icon={
-          lastSixPokemonsCaught[2][0] && lastSixPokemonsCaught[2][0].imageURL
+          lastSixPokemonsCaught.length !== 0 && lastSixPokemonsCaught[2]
             ? lastSixPokemonsCaught[2][0].imageURL
             : questionMark
         }
-        onClick={() => pokemonClickHandler(lastSixPokemonsCaught[2][0].id)}
+        onClick={() =>
+          lastSixPokemonsCaught.length !== 0 &&
+          pokemonClickHandler(lastSixPokemonsCaught[2][0].id)
+        }
       />
       <PokemonButton
         icon={
-          lastSixPokemonsCaught[3][0] && lastSixPokemonsCaught[3][0].imageURL
+          lastSixPokemonsCaught.length !== 0 && lastSixPokemonsCaught[3]
             ? lastSixPokemonsCaught[3][0].imageURL
             : questionMark
         }
-        onClick={() => pokemonClickHandler(lastSixPokemonsCaught[3][0].id)}
+        onClick={() =>
+          lastSixPokemonsCaught.length !== 0 &&
+          pokemonClickHandler(lastSixPokemonsCaught[3][0].id)
+        }
       />
       <PokemonButton
         icon={
-          lastSixPokemonsCaught[4][0] && lastSixPokemonsCaught[4][0].imageURL
+          lastSixPokemonsCaught.length !== 0 && lastSixPokemonsCaught[4]
             ? lastSixPokemonsCaught[4][0].imageURL
             : questionMark
         }
-        onClick={() => pokemonClickHandler(lastSixPokemonsCaught[4][0].id)}
+        onClick={() =>
+          lastSixPokemonsCaught.length !== 0 &&
+          pokemonClickHandler(lastSixPokemonsCaught[4][0].id)
+        }
       />
       <PokemonButton
         icon={
-          lastSixPokemonsCaught[5][0] && lastSixPokemonsCaught[5][0].imageURL
+          lastSixPokemonsCaught.length !== 0 && lastSixPokemonsCaught[5]
             ? lastSixPokemonsCaught[5][0].imageURL
             : questionMark
         }
-        onClick={() => pokemonClickHandler(lastSixPokemonsCaught[5][0].id)}
+        onClick={() =>
+          lastSixPokemonsCaught.length !== 0 &&
+          pokemonClickHandler(lastSixPokemonsCaught[5][0].id)
+        }
       />
       <Button icon={plusIcon} onClick={newPokemonClickHandler} />
     </S.Wrapper>

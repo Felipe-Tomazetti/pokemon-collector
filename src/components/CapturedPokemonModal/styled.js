@@ -23,13 +23,15 @@ const typeColors = {
 
 export const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-selft: center;
   z-index: 999;
+  padding-bottom: 20rem;
 `;
 
 export const ModalContent = styled.div`

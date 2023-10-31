@@ -1,6 +1,5 @@
 import { pokemonActions } from "../slices/pokemonSlice";
 import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchAllPokemons = () => {
   return async (dispatch) => {

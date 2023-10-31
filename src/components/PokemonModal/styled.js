@@ -157,7 +157,7 @@ export const CaptureButton = styled.img`
   z-index: 3;
   position: fixed;
   margin-bottom: 10rem;
-  margin-left: 20rem;
+  margin-left: 16rem;
 `;
 
 export const VerticalSeparator = styled.div`

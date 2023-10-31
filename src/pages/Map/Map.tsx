@@ -13,7 +13,7 @@ import CapturedPokemonModal from "../../components/CapturedPokemonModal";
 
 const Map = () => {
   const dispatch = useDispatch();
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
   const allPokemons = useSelector((state) => state.pokemons.allPokemons);
   const currentPokemon = useSelector(
     (state) => state.pokemons.currentPokemonFound

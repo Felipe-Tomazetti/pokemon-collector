@@ -27,8 +27,8 @@ export const ButtonWrapper = styled.button`
 `;
 
 export const Icon = styled.img`
-  height: 3.8rem;
-  width: 3.8rem;
+  height: 2rem;
+  width: 2rem;
 `;
 
 export const Text = styled.span``;

@@ -29,7 +29,6 @@ export const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  align-selft: center;
   z-index: 999;
 `;
 

@@ -56,6 +56,7 @@ const pokemonSlice = createSlice({
     cleanCurrentPokemon(state) {
       state.currentPokemonFound = [];
     },
+    releasePokemon(state) {},
   },
 });
 

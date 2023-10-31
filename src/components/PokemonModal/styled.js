@@ -96,8 +96,8 @@ export const PokemonImageWrapper = styled.div`
   z-index: 2;
 
   img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%;
+    max-height: 90%;
   }
 `;
 

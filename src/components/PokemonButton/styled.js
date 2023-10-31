@@ -24,11 +24,26 @@ export const ButtonWrapper = styled.button`
     border: 4px solid #004a45;
     padding: 0;
   }
+  &.captured {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border: 4px solid #00d68f;
+    padding: 0;
+  }
 `;
 
 export const Icon = styled.img`
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
+
+  &.captured {
+    height: 3rem;
+    width: 3rem;
+  }
 `;
 
 export const Text = styled.span``;

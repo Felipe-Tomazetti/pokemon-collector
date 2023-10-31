@@ -40,13 +40,6 @@ const PokemonsContainer = () => {
           onClose={handleModalClose}
         />
       )}
-      {/* {capturedPokemons.slice(-6).map((pokemon) => (
-        <PokemonButton
-          key={pokemon.id}
-          icon={pokemon[0].imageURL ? pokemon[0].imageURL : questionMark}
-          onClick={() => pokemonClickHandler(pokemon.id)}
-        />
-      ))} */}
       <PokemonButton
         icon={
           lastSixPokemonsCaught.length !== 0 &&

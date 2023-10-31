@@ -1,19 +1,18 @@
-import * as S from "./styled";
-import ash from "../../assets/images/ashFront.png";
+import { useSelector, useDispatch } from "react-redux";
+import { pokemonActions } from "../../store/slices/pokemonSlice";
 import pokeball from "../../assets/images/pokeball.png";
-import { useSelector } from "react-redux";
+import * as S from "./styled";
 
 const PokemonModal = ({ onClose, pokemonData }) => {
-  const captureHandler = () => {
-    console.log("caputrado");
-    onClose();
-  };
-
   const currentPokemon = useSelector(
     (state) => state.pokemons.currentPokemonFound
   );
+  const dispatch = useDispatch();
 
-  console.log("current pokemas", currentPokemon);
+  const captureHandler = async () => {
+    await dispatch(pokemonActions.capturePokemon(currentPokemon));
+    onClose();
+  };
 
   return (
     <S.ModalWrapper>

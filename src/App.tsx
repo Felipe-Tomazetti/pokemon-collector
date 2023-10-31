@@ -1,14 +1,13 @@
 import Home from "./pages/Home/Home";
-import GlobalStyles from './assets/styles/globalStyled'
-import { BrowserRouter, Route } from 'react-router-dom';
+import GlobalStyles from "./assets/styles/globalStyled";
 
 function App() {
-
-  return (<>
-    <GlobalStyles/>
-    <Home/>
-  </>
-  )
+  return (
+    <>
+      <GlobalStyles />
+      <Home />
+    </>
+  );
 }
 
 export default App;

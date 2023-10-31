@@ -1,9 +1,9 @@
 import * as S from "./styled";
 import searchToolTip from "../../assets/images/searchToolTip.png";
 
-interface SearchToolTipProps {
+type SearchToolTipProps = {
   visibility: boolean;
-}
+};
 
 const SearchToolTip = ({ visibility }: SearchToolTipProps) => {
   return (

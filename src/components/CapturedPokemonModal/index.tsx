@@ -8,7 +8,7 @@ import moveSpeedIcon from "../../assets/icons/velocity.png";
 import Button from "../Button";
 
 const CapturedPokemonModal = ({ onClose, pokemonData }) => {
-  const captureHandler = () => {
+  const releaseHandler = () => {
     console.log("caputrado");
     onClose();
   };
@@ -16,8 +16,6 @@ const CapturedPokemonModal = ({ onClose, pokemonData }) => {
   const currentPokemon = useSelector(
     (state) => state.pokemons.currentPokemonFound
   );
-
-  console.log("POKEMON DATA", pokemonData);
 
   return (
     <S.ModalWrapper>
@@ -117,7 +115,7 @@ const CapturedPokemonModal = ({ onClose, pokemonData }) => {
           <S.ButtonWrapper>
             <Button
               text={"LIBERAR POKEMON"}
-              onClick={(): void => {}}
+              onClick={releaseHandler}
               icon={""}
             />
           </S.ButtonWrapper>

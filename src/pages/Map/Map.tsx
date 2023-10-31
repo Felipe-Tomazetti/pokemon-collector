@@ -7,8 +7,6 @@ import {
 import { pokemonActions } from "../../store/slices/pokemonSlice";
 import * as S from "./styled";
 import PlayerContainer from "../../components/PlayerContainer";
-import Sound from "react-sound";
-import PokemonTheme from "../../assets/Pokemon.mp3";
 import PokemonsContainer from "../../components/PokemonsContainer";
 import PokemonModal from "../../components/PokemonModal";
 import CapturedPokemonModal from "../../components/CapturedPokemonModal";
@@ -45,17 +43,8 @@ const Map = () => {
   return (
     <S.Wrapper>
       {showModal && (
-        <CapturedPokemonModal
-          pokemonData={currentPokemon}
-          onClose={handleModalClose}
-        />
+        <PokemonModal pokemonData={currentPokemon} onClose={handleModalClose} />
       )}
-      {/* <Sound
-        url={PokemonTheme}
-        playStatus={Sound.status.PLAYING}
-        playFromPosition={5000}
-        volume={10}
-      /> */}
       <S.PokemonContainerWrapper>
         <PokemonsContainer />
       </S.PokemonContainerWrapper>

@@ -1,9 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface Pokemon {
+type Pokemon = {
+  id: number;
+  imageURL: string;
   name: string;
-  url: string;
-}
+  hp: number;
+  height: number;
+  weight: number;
+  types: Array<string>;
+  abilities: Array<string>;
+  stats: {
+    defense: number;
+    attack: number;
+    specialDefense: number;
+    specialAttack: number;
+    moveSpeed: number;
+  };
+};
 
 const pokemonSlice = createSlice({
   name: "pokemon",
@@ -16,7 +29,10 @@ const pokemonSlice = createSlice({
     fillAllPokemonsArray(state, action) {
       state.allPokemons = action.payload;
     },
-    capturePokemon(state, action) {},
+    capturePokemon(state, action) {
+      const capturedPokemon = action.payload;
+      state.capturedPokemons.push(capturedPokemon);
+    },
     searchForPokemon(state, action) {
       const currentPokemon = action.payload;
       state.currentPokemonFound.push({
